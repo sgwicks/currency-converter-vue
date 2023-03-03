@@ -94,9 +94,9 @@ input[type="number"] {
 /** These are my styles */
 .converter {
   display: flex;
-  justify-content: center;
   margin-inline: auto;
-  width: 600px;
+  flex-wrap: wrap;
+  width: 550px;
   max-width: 100%;
   gap: 15px;
 }
@@ -109,6 +109,10 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+}
+
+p.total {
+  justify-self: center;
 }
 
 label {
