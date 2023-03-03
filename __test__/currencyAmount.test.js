@@ -13,7 +13,7 @@ describe("currencyAmount", () => {
   test("Setting value updates store", async () => {
     const user = userEvent.setup()
     const { getByRole } = render(currencyAmount, { store })
-    const input = getByRole("spinbutton", { name: "Amount" })
+    const input = getByRole("spinbutton", { name: "Select Amount" })
 
     await user.type(input, "32")
 
@@ -24,7 +24,7 @@ describe("currencyAmount", () => {
   test("Only accepts numbers", async () => {
     const user = userEvent.setup()
     const { getByRole } = render(currencyAmount, { store })
-    const input = getByRole("spinbutton", { name: "Amount" })
+    const input = getByRole("spinbutton", { name: "Select Amount" })
 
     expect(input.value).toBe("0")
     await user.type(input, "Brian")

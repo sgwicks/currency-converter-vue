@@ -110,8 +110,8 @@ describe("App", () => {
 
     getRates.mockImplementationOnce(() => Promise.resolve(mockEURRates))
 
-    const fromSelect = getByRole("combobox", { name: "From" })
-    const toSelect = getByRole("combobox", { name: "To" })
+    const fromSelect = getByRole("combobox", { name: "Convert From" })
+    const toSelect = getByRole("combobox", { name: "Convert To" })
 
     await user.selectOptions(fromSelect, "EUR")
     await user.selectOptions(toSelect, "USD")
@@ -133,8 +133,8 @@ describe("App", () => {
 
     getRates.mockImplementationOnce(() => Promise.resolve(mockEURRates))
 
-    const fromSelect = getByRole("combobox", { name: "From" })
-    const toSelect = getByRole("combobox", { name: "To" })
+    const fromSelect = getByRole("combobox", { name: "Convert From" })
+    const toSelect = getByRole("combobox", { name: "Convert To" })
     const amountInput = getByRole("spinbutton")
 
     await user.selectOptions(fromSelect, "EUR")
