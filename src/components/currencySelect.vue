@@ -25,17 +25,14 @@ export default {
   },
   computed: {
     codes() {
-      const rates = this.$store.getters.getRates
-      if (!rates) return []
-      const codes = Object.keys(rates)
-      return codes
+      return this.$store.getters.getCodes
     },
     selected: {
       get() {
         return this.value
       },
       set(val) {
-        this.$emit("selected", val)
+        this.$emit("input", val)
       },
     },
   },

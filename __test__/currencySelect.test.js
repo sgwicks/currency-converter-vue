@@ -62,7 +62,7 @@ describe("currencySelect", () => {
       currencySelect,
       { store, props: { value: "" } },
       (vue, store) => {
-        store.dispatch("setRates", mockRates)
+        store.dispatch("setCodes", Object.keys(mockRates))
       }
     )
     const dropdown = getByRole("combobox")
@@ -70,7 +70,7 @@ describe("currencySelect", () => {
     await user.selectOptions(dropdown, "EUR")
     expect(dropdown.value).toBe("EUR")
     await waitFor(() => {
-      expect(emitted().selected).toEqual([["EUR"]])
+      expect(emitted().input).toEqual([["EUR"]])
     })
   })
 })
