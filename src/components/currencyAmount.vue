@@ -1,6 +1,6 @@
 <template>
   <label>
-    Amount
+    Select Amount
     <input v-model.number="amount" type="number" />
   </label>
 </template>
@@ -14,7 +14,7 @@ export default {
         return this.$store.getters.getAmount
       },
       set(val) {
-        this.$store.dispatch("setAmount", Number(val))
+        this.$store.dispatch("setAmount", Math.abs(val))
       },
     },
   },
