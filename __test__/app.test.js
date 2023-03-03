@@ -145,6 +145,6 @@ describe("App", () => {
     expect(store.getters.getConvertTo).toBe("USD")
     const conversion = 32 * 1.0617774561038
 
-    getByText(conversion)
+    getByText(conversion.toFixed(2))
   })
 })

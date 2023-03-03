@@ -45,7 +45,7 @@ export default {
       if (!this.amount || !this.convertFrom.length || !this.convertTo.length)
         return 0
       const rates = this.$store.getters.getRates
-      return rates[this.convertTo.toLowerCase()].rate * this.amount
+      return (rates[this.convertTo.toLowerCase()].rate * this.amount).toFixed(2)
     },
   },
   async mounted() {
