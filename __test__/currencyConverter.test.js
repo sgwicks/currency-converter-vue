@@ -85,11 +85,11 @@ const mockEURRates = {
 
 getRates.mockImplementation(() => Promise.resolve(mockGBPRates))
 
-import App from "@/App.vue"
+import currencyConverter from "@/components/currencyConverter"
 
-describe("App", () => {
+describe("currencyConverter", () => {
   test("Sends rates to store", () => {
-    render(App, { store })
+    render(currencyConverter, { store })
     waitFor(() => {
       expect(store.getters.getCodes).toEqual([
         "GBP",
@@ -100,7 +100,7 @@ describe("App", () => {
 
   test("Displays a dropdown for from and to", async () => {
     const user = userEvent.setup()
-    const { getByRole } = render(App, { store })
+    const { getByRole } = render(currencyConverter, { store })
     await waitFor(() => {
       expect(store.getters.getCodes).toEqual([
         "GBP",
@@ -123,7 +123,7 @@ describe("App", () => {
 
   test("Displays converted currency", async () => {
     const user = userEvent.setup()
-    const { getByRole, getByText } = render(App, { store })
+    const { getByRole, getByText } = render(currencyConverter, { store })
     await waitFor(() => {
       expect(store.getters.getCodes).toEqual([
         "GBP",
