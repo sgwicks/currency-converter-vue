@@ -10,7 +10,6 @@ const initial = {
   from: "",
   to: "",
   amount: 0,
-  fromRates: [],
 }
 
 const state = cloneDeep(initial)
@@ -21,7 +20,6 @@ const getters = {
   getConvertFrom: (state) => state.from,
   getConvertTo: (state) => state.to,
   getAmount: (state) => state.amount,
-  getFromRates: (state) => state.fromRates,
 }
 
 const actions = {
@@ -39,9 +37,6 @@ const actions = {
   },
   setAmount: ({ commit }, amount) => {
     commit("amount", amount)
-  },
-  setFromRates: ({ commit }, rates) => {
-    commit("storeFromRates", rates)
   },
   reset: ({ commit }) => {
     commit("reset")
@@ -63,9 +58,6 @@ const mutations = {
   },
   amount: (state, amount) => {
     state.amount = amount
-  },
-  storeFromRates: (state, rates) => {
-    state.fromRates = rates
   },
   reset: (state) => {
     for (const key in state) {

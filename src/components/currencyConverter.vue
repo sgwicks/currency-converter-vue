@@ -44,9 +44,14 @@ export default {
       return this.$store.getters.getAmount
     },
     convertedAmount() {
+      // Don't attempt convert if we don't have all the information yet
       if (!this.amount || !this.convertFrom.length || !this.convertTo.length)
         return 0
+
+      // If both values are the same, the amount is the amount
       if (this.convertFrom === this.convertTo) return this.amount
+
+      // Use "From" as a dictionary to look up "To"
       const rates = this.$store.getters.getRates
       return (rates[this.convertTo.toLowerCase()].rate * this.amount).toFixed(2)
     },
@@ -54,6 +59,7 @@ export default {
   async mounted() {
     const rates = await getRates("GBP")
     const codes = Object.keys(rates)
+    // Since GBP doesn't exist on the GBP conversion rates
     this.$store.dispatch("setCodes", ["GBP", ...codes])
   },
   methods: {
@@ -70,7 +76,7 @@ export default {
   display: flex;
   margin-inline: auto;
   flex-wrap: wrap;
-  width: 550px;
+  width: 525px;
   max-width: 100%;
   gap: 15px;
 }
@@ -86,29 +92,7 @@ p {
 }
 
 p.total {
-  justify-self: center;
-}
-
-label {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 5px;
-}
-
-input,
-select {
-  width: 110px;
-  padding: 5px;
-  margin: 0;
-  background-color: white;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
-input {
-  /** To account for how padding works differently in input vs. select */
-  width: 98px;
+  flex-grow: 1;
 }
 
 @media screen and (max-width: 600px) {
@@ -117,7 +101,8 @@ input {
     align-items: center;
     gap: 25px;
   }
-  label {
+  /* Keep this query here because we might not want to style component like this in other places */
+  .converter label {
     align-items: center;
     font-weight: 600;
   }

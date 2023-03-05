@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <h1>Currency Converter</h1>
     <currencyConverter />
   </div>
 </template>
@@ -16,6 +17,11 @@ export default {
 </script>
 
 <style>
+/* Not sure I make use of this anywhere, but just in case */
+* {
+  box-sizing: border-box;
+}
+
 /* These styles come with vue-cli */
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

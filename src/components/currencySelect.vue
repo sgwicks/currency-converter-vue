@@ -39,4 +39,20 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+select {
+  width: 110px;
+  padding: 5px;
+  margin: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+</style>
